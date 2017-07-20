@@ -20,6 +20,10 @@ func NewWebServer(controller *controller.Controller) *WebServer {
 }
 
 func (s *WebServer) InitRoutes() {
+	// Index page
+	s.router.GET("/", func(c *gin.Context) {
+		c.String(200, "Social tournament service API")
+	})
 
 	// #1 /take?playerId=P1&points=300   takes 300 points from player P1 account
 	s.router.GET("/take", getTakeHandler(s)) // should it be POST?
