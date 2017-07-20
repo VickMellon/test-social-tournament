@@ -9,7 +9,7 @@ import (
 func main() {
 
 	dbConf := &storage.PostgresConfig{
-		Host:     "192.168.0.99",
+		Host:     "127.0.0.1",
 		Port:     5432,
 		User:     "test",
 		Password: "test",
@@ -22,7 +22,7 @@ func main() {
 	c := controller.NewController(s)
 	w := server.NewWebServer(c)
 
-	w.Run(":8080")
+	w.Run(":8088")
 
 	s.Close()
 }
